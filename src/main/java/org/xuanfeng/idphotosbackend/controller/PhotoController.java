@@ -5,9 +5,11 @@ import com.alibaba.fastjson.JSON;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.xuanfeng.idphotosbackend.model.bo.ImageSecurityCheckBO;
 import org.xuanfeng.idphotosbackend.model.bo.PhotoCreateBO;
 import org.xuanfeng.idphotosbackend.model.request.PhotoCreateRequest;
 import org.xuanfeng.idphotosbackend.model.response.ResponseResult;
+import org.xuanfeng.idphotosbackend.model.vo.ImageSecurityCheckVO;
 import org.xuanfeng.idphotosbackend.model.vo.PhotoCreateVO;
 import org.xuanfeng.idphotosbackend.service.biz.PhotoBizService;
 
@@ -31,6 +33,17 @@ public class PhotoController {
         return ResponseResult.success(PhotoCreateVO.builder()
                 .imageKey(bo.getImageKey())
                 .imageUrl(bo.getImageUrl())
+                .build());
+    }
+
+    @PostMapping(value = "/security/check", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseResult<ImageSecurityCheckVO> imageSecurityCheck(@RequestPart("file") MultipartFile file) {
+        ImageSecurityCheckBO bo = photoBizService.imageSecurityCheck(file);
+        return ResponseResult.success(ImageSecurityCheckVO.builder()
+                .imageKey(bo.getImageKey())
+                .imageUrl(bo.getImageUrl())
+                .passed(bo.getPassed())
+                .rejectReason(bo.getRejectReason())
                 .build());
     }
 }

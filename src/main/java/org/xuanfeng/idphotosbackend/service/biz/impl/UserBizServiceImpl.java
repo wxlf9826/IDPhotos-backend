@@ -11,6 +11,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.multipart.MultipartFile;
+import org.xuanfeng.idphotosbackend.constant.CommonConstants;
 import org.xuanfeng.idphotosbackend.core.enums.PointTypeEnum;
 import org.xuanfeng.idphotosbackend.core.enums.ResultCodeEnum;
 import org.xuanfeng.idphotosbackend.core.enums.StateEnum;
@@ -265,10 +266,10 @@ public class UserBizServiceImpl implements UserBizService {
         }
 
         // 优化：文件名包含用户ID，方便追踪
-        String fileName = String.format("avatars/%d/%s%s", userId, UUID.randomUUID(), suffix);
+        String key = String.format(CommonConstants.S3_AVATARS_KEY, UUID.randomUUID());
 
         try (InputStream is = file.getInputStream()) { // 使用 try-with-resources
-            return s3Service.uploadFile(is, fileName, file.getContentType());
+            return s3Service.uploadFile(is, key, file.getContentType());
         } catch (IOException e) {
             log.error("用户 {} 头像上传读取失败", userId, e);
             throw new CommonException(ResultCodeEnum.SYSTEM_ERROR, "图片处理异常");

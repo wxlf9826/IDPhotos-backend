@@ -43,4 +43,13 @@ public class TimeUtils {
         calendar.add(Calendar.DAY_OF_YEAR, days);
         return calendar.getTime();
     }
+
+    /**
+     * 获取今日的时间，如：2026-01-01
+     * @return 日期
+     */
+    public static String getTodayStr() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(YMD_PATTERN);
+        return simpleDateFormat.format(new Date());
+    }
 }

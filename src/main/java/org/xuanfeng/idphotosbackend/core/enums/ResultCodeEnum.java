@@ -16,6 +16,7 @@ public enum ResultCodeEnum {
     PHOTO_ERROR(30001, "请求图片AI异常"),
     S3_ERROR(30002, "s3异常"),
     POINTS_NOT_ENOUGH(30003, "积分不足"),
+    IMAGE_SECURITY_CHECK_FAIL(30004, "图片安全检测不通过"),
     ;
 
     private final Integer code;

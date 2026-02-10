@@ -68,5 +68,15 @@ public class ConfigProvider {
         return val != null ? Integer.parseInt(val) : 0;
     }
 
+    /**
+     * 是否开启图片安全检测
+     * 数据库中配置值为 "true" 时开启，其他值或未配置时默认不开启
+     *
+     * @return true-开启 false-关闭
+     */
+    public boolean isImageSecurityCheckEnabled() {
+        String val = configService.getConfigValue(ConfigConstants.IMAGE_SECURITY_CHECK_ENABLED);
+        return "true".equalsIgnoreCase(val);
+    }
 
 }

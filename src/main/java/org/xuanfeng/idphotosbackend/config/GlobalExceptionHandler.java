@@ -68,7 +68,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	public ResponseResult<Object> handleRuntimeException(Exception e) {
 		log.error("系统未知异常: ", e);
-		return ResponseResult.error(500, "服务器开小差了，请稍后再试");
+		return ResponseResult.error(500, e.getMessage());
 	}
 
 }

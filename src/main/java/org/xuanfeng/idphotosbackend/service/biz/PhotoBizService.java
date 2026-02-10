@@ -1,6 +1,7 @@
 package org.xuanfeng.idphotosbackend.service.biz;
 
 import org.springframework.web.multipart.MultipartFile;
+import org.xuanfeng.idphotosbackend.model.bo.ImageSecurityCheckBO;
 import org.xuanfeng.idphotosbackend.model.bo.PhotoCreateBO;
 import org.xuanfeng.idphotosbackend.model.request.PhotoCreateRequest;
 
@@ -14,6 +15,14 @@ public interface PhotoBizService {
      * @return 结果
      */
     PhotoCreateBO createPhoto(MultipartFile file, PhotoCreateRequest request);
+
+    /**
+     * 图片安全检测
+     *
+     * @param file 文件
+     * @return 结果
+     */
+    ImageSecurityCheckBO imageSecurityCheck(MultipartFile file);
 
     /**
      * 清除x天以前的图片

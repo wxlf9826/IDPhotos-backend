@@ -34,4 +34,9 @@ public class ConfigConstants {
 	 * 管理员密码
 	 */
     public static final String ADMIN_PASSWORD = "admin_password";
+
+	/**
+	 * 是否开启图片安全检测（值为 "true" 或 "false"）
+	 */
+	public static final String IMAGE_SECURITY_CHECK_ENABLED = "image_security_check_enabled";
 }
