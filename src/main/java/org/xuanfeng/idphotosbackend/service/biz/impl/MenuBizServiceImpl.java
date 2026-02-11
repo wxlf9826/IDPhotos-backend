@@ -2,7 +2,9 @@ package org.xuanfeng.idphotosbackend.service.biz.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.xuanfeng.idphotosbackend.core.enums.RenderEnum;
 import org.xuanfeng.idphotosbackend.model.bo.BgColorBO;
+import org.xuanfeng.idphotosbackend.model.bo.RenderBO;
 import org.xuanfeng.idphotosbackend.model.bo.SizeBO;
 import org.xuanfeng.idphotosbackend.model.po.PicBgColor;
 import org.xuanfeng.idphotosbackend.model.po.PicSize;
@@ -11,6 +13,7 @@ import org.xuanfeng.idphotosbackend.service.PicBgColorService;
 import org.xuanfeng.idphotosbackend.service.PicSizeService;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,5 +46,15 @@ public class MenuBizServiceImpl implements MenuBizService {
                 .name(e.getName())
                 .colorValue(e.getColorValue())
                 .build()).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<RenderBO> getAllRenderMode() {
+        return Arrays.stream(RenderEnum.values())
+                .map(e -> RenderBO.builder()
+                        .type(e.getType())
+                        .number(e.getNumber())
+                        .build())
+                .collect(Collectors.toList());
     }
 }

@@ -45,12 +45,6 @@ public class AppUserHistory {
     private String time;
 
     /**
-     * 使用参数
-     */
-    @Column(name = "use_param")
-    private String useParam;
-
-    /**
      * 尺寸名称
      */
     @Column(name = "size_name")

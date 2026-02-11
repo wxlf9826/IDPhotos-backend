@@ -5,9 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.xuanfeng.idphotosbackend.model.bo.BgColorBO;
+import org.xuanfeng.idphotosbackend.model.bo.RenderBO;
 import org.xuanfeng.idphotosbackend.model.bo.SizeBO;
 import org.xuanfeng.idphotosbackend.model.response.ResponseResult;
 import org.xuanfeng.idphotosbackend.model.vo.BgColorVO;
+import org.xuanfeng.idphotosbackend.model.vo.RenderVO;
 import org.xuanfeng.idphotosbackend.model.vo.SizeVO;
 import org.xuanfeng.idphotosbackend.service.biz.MenuBizService;
 
@@ -41,6 +43,17 @@ public class MenuController {
             BgColorVO bgColorVO = new BgColorVO();
             BeanUtils.copyProperties(e, bgColorVO);
             return bgColorVO;
+        }).collect(Collectors.toList()));
+    }
+
+    @GetMapping("/renderMode/list")
+    public ResponseResult<List<RenderVO>> getRenderModeList() {
+        List<RenderBO> allRenderMode = menuBizService.getAllRenderMode();
+
+        return ResponseResult.success(allRenderMode.stream().map(e -> {
+            RenderVO renderVO = new RenderVO();
+            BeanUtils.copyProperties(e, renderVO);
+            return renderVO;
         }).collect(Collectors.toList()));
     }
 }

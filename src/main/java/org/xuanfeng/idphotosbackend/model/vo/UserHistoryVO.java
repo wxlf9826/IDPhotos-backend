@@ -37,7 +37,42 @@ public class UserHistoryVO {
     private String createTime;
 
     /**
-     * 参数
+     * 尺寸名称
      */
-    private String useParam;
+    private String sizeName;
+
+    /**
+     * 像素高度
+     */
+    private Integer heightPx;
+
+    /**
+     * 像素宽度
+     */
+    private Integer widthPx;
+
+    /**
+     * 背景颜色
+     */
+    private String bgColor;
+
+    /**
+     * 渲染模式
+     */
+    private String renderMode;
+
+    /**
+     * 美颜设置
+     */
+    private String beautyConfig;
+
+    /**
+     * 水印设置
+     */
+    private String watermarkConfig;
+
+    /**
+     * 其他设置
+     */
+    private String otherConfig;
 }

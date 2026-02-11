@@ -1,6 +1,7 @@
 package org.xuanfeng.idphotosbackend.service.biz;
 
 import org.xuanfeng.idphotosbackend.model.bo.BgColorBO;
+import org.xuanfeng.idphotosbackend.model.bo.RenderBO;
 import org.xuanfeng.idphotosbackend.model.bo.SizeBO;
 
 import java.util.List;
@@ -20,4 +21,11 @@ public interface MenuBizService {
      * @return 背景颜色列表
      */
     List<BgColorBO> getAllBgColor();
+
+    /**
+     * 获取所有渲染模式
+     *
+     * @return 渲染模式列表
+     */
+    List<RenderBO> getAllRenderMode();
 }
