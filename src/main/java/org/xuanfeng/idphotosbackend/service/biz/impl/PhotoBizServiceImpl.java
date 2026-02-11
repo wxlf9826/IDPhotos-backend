@@ -280,7 +280,14 @@ public class PhotoBizServiceImpl implements PhotoBizService {
                 .userId(userId)
                 .imageKey(key)
                 .time(TimeUtils.dateToStr(new Date(), TimeUtils.YMD_PATTERN))
-                .useParam(JSON.toJSONString(request))
+                .sizeName(request.getSizeName())
+                .heightPx(request.getHeightPx())
+                .widthPx(request.getWidthPx())
+                .bgColor(request.getBgColor())
+                .renderMode(request.getRenderMode())
+                .beautyConfig(JSON.toJSONString(request.getBeautyConfig()))
+                .watermarkConfig(JSON.toJSONString(request.getWatermarkConfig()))
+                .otherConfig(JSON.toJSONString(request.getOtherConfig()))
                 .build());
 
         // 保存到积分记录里

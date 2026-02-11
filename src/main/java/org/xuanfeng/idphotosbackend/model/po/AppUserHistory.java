@@ -51,6 +51,54 @@ public class AppUserHistory {
     private String useParam;
 
     /**
+     * 尺寸名称
+     */
+    @Column(name = "size_name")
+    private String sizeName;
+
+    /**
+     * 像素高度
+     */
+    @Column(name = "height_px")
+    private Integer heightPx;
+
+    /**
+     * 像素宽度
+     */
+    @Column(name = "width_px")
+    private Integer widthPx;
+
+    /**
+     * 背景颜色
+     */
+    @Column(name = "bg_color")
+    private String bgColor;
+
+    /**
+     * 渲染模式
+     */
+    @Column(name = "render_mode")
+    private String renderMode;
+
+    /**
+     * 美颜设置
+     */
+    @Column(name = "beauty_config")
+    private String beautyConfig;
+
+    /**
+     * 水印设置
+     */
+    @Column(name = "watermark_config")
+    private String watermarkConfig;
+
+    /**
+     * 其他设置
+     */
+    @Column(name = "other_config")
+    private String otherConfig;
+
+    /**
      * 逻辑删除标志 0-无效，1-有效
      */
     @Column(name = "state")

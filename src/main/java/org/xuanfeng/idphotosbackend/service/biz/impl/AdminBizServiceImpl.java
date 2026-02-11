@@ -256,7 +256,14 @@ public class AdminBizServiceImpl implements AdminBizService {
                     .imageUrl(StringUtils.isNotBlank(po.getImageKey()) ? s3Service.getPresignedUrl(po.getImageKey()) : null)
                     .date(po.getTime())
                     .createTime(TimeUtils.dateToStr(po.getCreateTime()))
-                    .useParam(po.getUseParam())
+                    .sizeName(po.getSizeName())
+                    .heightPx(po.getHeightPx())
+                    .widthPx(po.getWidthPx())
+                    .bgColor(po.getBgColor())
+                    .renderMode(po.getRenderMode())
+                    .beautyConfig(JSON.toJSONString(po.getBeautyConfig()))
+                    .watermarkConfig(JSON.toJSONString(po.getWatermarkConfig()))
+                    .otherConfig(JSON.toJSONString(po.getOtherConfig()))
                     .build();
         }).collect(Collectors.toList()));
         return result;
